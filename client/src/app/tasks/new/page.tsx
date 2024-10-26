@@ -46,25 +46,26 @@ const NewTask: React.FC = () => {
     }
   };
 
+  // TODO: form validation
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Add New Task</h2>
+    <div className="p-6 max-w-md mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg text-black dark:text-white">
+      <h2 className="text-2xl font-bold mb-6 text-center">New Task</h2>
       <input
-        className="border p-2 w-full mb-2"
+        className="border dark:border-gray-600 p-3 w-full mb-4 bg-gray-50 dark:bg-gray-700 text-black dark:text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
         type="text"
         placeholder="Task Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
-        className="border p-2 w-full mb-2"
+        className="border dark:border-gray-600 p-3 w-full mb-4 bg-gray-50 dark:bg-gray-700 text-black dark:text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
         placeholder="Task Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
       <button
         onClick={handleSave}
-        className="bg-blue-600 text-white p-2 rounded"
+        className="bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 text-white p-3 w-full rounded"
       >
         Save Task
       </button>
