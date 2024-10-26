@@ -2,9 +2,9 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome to the Task Manager</h1>
-      <p>Manage your tasks efficiently with Next.js 14</p>
+    <div className="p-8 bg-white rounded-md shadow-md">
+      <h2 className="text-2xl font-bold mb-4">Welcome to Task Manager!</h2>
+      <p>Manage your tasks efficiently (Sponsored by Next.js)</p>
     </div>
   );
 };
