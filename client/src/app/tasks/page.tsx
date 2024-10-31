@@ -1,7 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+
 import { Task } from "../interfaces/Task.interface";
+import TaskCard from "../components/TaskCard";
 
 const TaskList: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -39,21 +41,18 @@ const TaskList: React.FC = () => {
   return (
     <div className="bg-white dark:bg-gray-800 p-4 rounded-md shadow-md">
       <h2 className="text-center text-2xl font-bold mb-4">Your Tasks</h2>
-      <ul>
+      <ul className="space-y-4">
         {tasks.map((task: Task) => (
-          <li key={task.id} className="mb-2">
-            <Link
-              href={`/tasks/${task.id}`}
-              className="text-blue-600 hover:underline"
-            >
-              {task.title}
-            </Link>
+          <li key={task.id}>
+            <TaskCard task={task} />
           </li>
         ))}
       </ul>
-      <Link href="/tasks/new" className="text-green-600 hover:underline">
-        New Task
-      </Link>
+      <div className="mt-6 text-center">
+        <Link href="/tasks/new" className="text-green-600 hover:underline">
+          + New Task
+        </Link>
+      </div>
     </div>
   );
 };
