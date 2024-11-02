@@ -41,10 +41,12 @@ const TaskList: React.FC = () => {
   return (
     <div className="bg-white dark:bg-gray-800 p-4 rounded-md shadow-md flex flex-col">
       <h2 className="text-center text-2xl font-bold mb-4">Your Tasks</h2>
-      <ul className="space-y-4 flex-grow">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 flex-grow">
         {tasks.map((task: Task) => (
           <li key={task.id}>
-            <TaskCard task={task} />
+            <Link href={`/tasks/${task.id}`}>
+              <TaskCard task={task} />
+            </Link>
           </li>
         ))}
       </ul>
