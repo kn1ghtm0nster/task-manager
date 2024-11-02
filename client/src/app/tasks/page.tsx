@@ -39,18 +39,21 @@ const TaskList: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-md shadow-md">
+    <div className="bg-white dark:bg-gray-800 p-4 rounded-md shadow-md flex flex-col">
       <h2 className="text-center text-2xl font-bold mb-4">Your Tasks</h2>
-      <ul className="space-y-4">
+      <ul className="space-y-4 flex-grow">
         {tasks.map((task: Task) => (
           <li key={task.id}>
             <TaskCard task={task} />
           </li>
         ))}
       </ul>
-      <div className="mt-6 text-center">
-        <Link href="/tasks/new" className="text-green-600 hover:underline">
-          + New Task
+      <div className="mt-6">
+        <Link
+          href="/tasks/new"
+          className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-500 transition-colors inline-block"
+        >
+          Add New Task
         </Link>
       </div>
     </div>
