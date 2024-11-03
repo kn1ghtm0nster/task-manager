@@ -29,4 +29,17 @@ describe("TaskCard Component", () => {
       "px-3 py-1 rounded-full text-sm font-medium bg-yellow-200 text-yellow-800"
     );
   });
+
+  it("shows the correct status color for a completed task", () => {
+    const completedTask: Task = {
+      ...mockTask,
+      status: "completed",
+    };
+
+    render(<TaskCard task={completedTask} />);
+    const statusElement = screen.getByText("Completed");
+    expect(statusElement).toHaveClass(
+      "px-3 py-1 rounded-full text-sm font-medium bg-green-200 text-green-800"
+    );
+  });
 });
