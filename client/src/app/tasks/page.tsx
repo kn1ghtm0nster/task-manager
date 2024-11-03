@@ -10,8 +10,13 @@ const TaskList: React.FC = () => {
 
   // Utility function to safely get tasks from localStorage
   const getSavedTasks = (): Task[] => {
-    const savedTasksString = localStorage.getItem("tasks");
-    return savedTasksString ? JSON.parse(savedTasksString) : [];
+    try {
+      const savedTasksString = localStorage.getItem("tasks");
+      return savedTasksString ? JSON.parse(savedTasksString) : [];
+    } catch (error) {
+      console.error("Failed to parse tasks from localStorage:", error);
+      return [];
+    }
   };
 
   useEffect(() => {
