@@ -25,17 +25,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
+          cache-dependency-path: server/package-lock.json
 
-      #3 Navigate to the server directory
-      - name: Navigate to server directory
-        run: cd server/
-
-      #4 Install dependencies
+      #3 Install dependencies
       - name: Install Server Dependencies
         run: npm ci
         working-directory: server/
 
-      #5 Run server tests
+      #4 Run server tests
       - name: Run Server Test Suite
         run: npm test
         working-directory: server/
