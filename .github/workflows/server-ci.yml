@@ -1,0 +1,41 @@
+name: Server CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+
+    steps:
+      #1 Checkout the code
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      #2 Setup Node.js environment
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      #3 Navigate to the server directory
+      - name: Navigate to server directory
+        run: cd server
+
+      #4 Install dependencies
+      - name: Install Server Dependencies
+        run: npm install
+        working-directory: server
+
+      #5 Run server tests
+      - name: Run Server Test Suite
+        run: npm test
+        working-directory: server
