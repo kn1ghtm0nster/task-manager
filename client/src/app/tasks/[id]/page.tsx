@@ -36,7 +36,7 @@ const TaskDetail: React.FC<TaskDetailProps> = () => {
         title,
         description,
         status,
-        updatedAt: new Date(),
+        updatedAt: new Date().toISOString(),
       };
 
       // Update the task in localstorage
@@ -65,31 +65,45 @@ const TaskDetail: React.FC<TaskDetailProps> = () => {
       <h2 className="text-2xl font-bold mb-4">Edit Task</h2>
       <form className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            htmlFor="title"
+          >
             Title
           </label>
           <input
+            id="title"
             type="text"
             value={title}
+            placeholder="Task Title"
             onChange={(e) => setTitle(e.target.value)}
             className="mt-1 block w-full p-2 border rounded-md bg-gray-50 dark:bg-gray-700 text-black dark:text-white"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            htmlFor="description"
+          >
             Description
           </label>
           <textarea
+            id="description"
             value={description}
+            placeholder="Task Description"
             onChange={(e) => setDescription(e.target.value)}
             className="mt-1 block w-full p-2 border rounded-md bg-gray-50 dark:bg-gray-700 text-black dark:text-white"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            htmlFor="status"
+          >
             Status
           </label>
           <select
+            id="status"
             value={status}
             onChange={(e) => setStatus(e.target.value)}
             className="mt-1 block w-full p-2 border rounded-md bg-gray-50 dark:bg-gray-700 text-black dark:text-white"
