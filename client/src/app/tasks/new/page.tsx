@@ -14,8 +14,8 @@ const NewTask: React.FC = () => {
       title,
       description,
       status: "pending",
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     };
 
     try {

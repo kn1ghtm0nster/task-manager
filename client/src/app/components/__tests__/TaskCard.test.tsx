@@ -9,8 +9,8 @@ describe("TaskCard Component", () => {
     title: "Test Task",
     description: "This is a test task",
     status: "pending",
-    createdAt: new Date(),
-    updatedAt: new Date(),
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
   };
 
   beforeEach(() => {

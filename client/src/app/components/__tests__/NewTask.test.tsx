@@ -73,8 +73,8 @@ describe("NewTask Component", () => {
       title: "New Task",
       description: "New Description",
       status: "pending",
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     };
 
     // Mocking fetch to resolve with a successful response
@@ -82,8 +82,8 @@ describe("NewTask Component", () => {
       ok: true,
       json: async () => ({
         ...mockTask,
-        createdAt: mockTask.createdAt.toISOString(),
-        updatedAt: mockTask.updatedAt.toISOString(),
+        createdAt: mockTask.createdAt,
+        updatedAt: mockTask.updatedAt,
       }),
     });
 

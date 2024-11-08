@@ -17,8 +17,8 @@ describe("TaskList Component", () => {
     title: "Task 1",
     description: "Description 1",
     status: "pending",
-    createdAt: new Date(),
-    updatedAt: new Date(),
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
   };
 
   const mockTasks: Task[] = [mockTask];

@@ -3,8 +3,8 @@ export interface Task {
   title: string;
   description: string;
   status?: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface TaskDetailProps {
