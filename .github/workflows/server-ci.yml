@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x]
+        node-version: [18.x, 20.x]
 
     steps:
       #1 Checkout the code
@@ -32,7 +32,7 @@ jobs:
 
       #4 Install dependencies
       - name: Install Server Dependencies
-        run: npm install
+        run: npm ci
         working-directory: server/
 
       #5 Run server tests
